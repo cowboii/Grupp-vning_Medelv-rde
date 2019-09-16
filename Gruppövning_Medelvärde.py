@@ -1,0 +1,28 @@
+numMax = 0
+numMin = 0
+count = 0
+sum = 0
+
+play = True
+
+while(play) :
+    store = input("Skriv in ett värde: ")
+    if (store == "0") :
+        break
+    store = float(store)
+
+    sum += store
+    count += 1
+
+    if (count == 1) :
+        numMax, numMin = store, store
+    if (store < numMin) :
+        numMin = store
+    if (store > numMax) :
+        numMax = store
+
+if (count > 2) :
+    totalSum = sum - numMax - numMin
+    print(totalSum / (count - 2))
+else :
+    print(sum / count)
