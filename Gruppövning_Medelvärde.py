@@ -16,9 +16,9 @@ while(play) :
 
     if (count == 1) :
         numMax, numMin = store, store
-    if (store < numMin) :
+    elif (store < numMin) :
         numMin = store
-    if (store > numMax) :
+    elif (store > numMax) :
         numMax = store
 
 if (count > 2) :
