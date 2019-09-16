@@ -7,6 +7,10 @@ play = True
 
 while(play) :
     store = input("Skriv in ett värde: ")
+    try :
+        float(store)
+    except :
+        break
     if (store == "0") :
         break
     store = float(store)
@@ -24,5 +28,7 @@ while(play) :
 if (count > 2) :
     totalSum = sum - numMax - numMin
     print(totalSum / (count - 2))
-else :
+elif count > 0 :
     print(sum / count)
+else :
+    print("ERROR")
