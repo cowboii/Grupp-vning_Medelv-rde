@@ -1,34 +1,46 @@
-numMax = 0
-numMin = 0
-count = 0
-sum = 0
+def medelvärde():
 
-play = True
+    num_max = 0
+    num_min = 0
+    sum = 0
+    count = 0
 
-while(play) :
-    store = input("Skriv in ett värde: ")
-    try :
-        float(store)
-    except :
-        break
-    if (store == "0") :
-        break
-    store = float(store)
+    while True:
+        store = input("Skriv in ett värde: ")
 
-    sum += store
-    count += 1
+        try:
+            store = float(store)
+        except:
+            print('Invalid input')
+            break
 
-    if (count == 1) :
-        numMax, numMin = store, store
-    elif (store < numMin) :
-        numMin = store
-    elif (store > numMax) :
-        numMax = store
+        if store == 0:
+            break
+        else:
+            sum += store
+            count += 1
 
-if (count > 2) :
-    totalSum = sum - numMax - numMin
-    print(totalSum / (count - 2))
-elif count > 0 :
-    print(sum / count)
-else :
-    print("ERROR")
+        if count == 1:
+            num_max, num_min = store, store
+            continue
+        else:
+            if store < num_min:
+                num_min = store
+            if store > num_max:
+                num_max = store
+
+    if count > 2:
+        count -= 2
+        sum -= num_max
+        sum -= num_min
+        return sum / count
+
+    elif num_max or num_min and count > 0:
+        return sum / count
+
+    else:
+        return 0
+
+
+if __name__ == "__main__":
+    print(medelvärde())
